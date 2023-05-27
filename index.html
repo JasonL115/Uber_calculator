@@ -29,129 +29,134 @@
     integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-
-
 </head>
 
-<body>
-  <div class="container-contact">
-    <div class="map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422"
-      data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1">
-    </div>
-    <div class="contact100-more">
-      <i class="fa fa-phone"></i> (+84) 931.891.198
-    </div>
+<div class="container-contact">
+  <div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12608.624931969445!2d144.9548900127411!3d-37.809809381968314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642cb954b1ce9%3A0xf187674ba9830e78!2sState%20Library%20Victoria!5e0!3m2!1svi!2sau!4v1685107395634!5m2!1svi!2sau" width="700" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  
 
-    <div class="wrap-contact">
-      <div class="logo">
-        <img src="./img/cybersoft.png" alt="Front End CyberSoft" width="40%" />
-        <span style="padding:20px"></span>
-        <div style="clear:both"></div>
-        <span class="title">UBER CALCULATOR</span>
-        <h2>Choose your car model</h2>
-        <ul>
-          <li class="type">
-            <input id="uberX" type="radio" name="selector" checked onclick="Choosecar();" />
-            <label for="uberX">Uber X</label>
-            <div class="check"></div>
-          </li>
-          <li class="type">
-            <input id="uberSUV" type="radio" name="selector" checked onclick="Choosecar();" />
-            <label for="uberX">Uber SUV</label>
-            <div class="check"></div>
-          </li>
-          <li class="type">
-            <input id="uberBlack" type="radio" name="selector" checked onclick="Choosecar();" />
-            <label for="uberX">Uber Black</label>
-            <div class="check"></div>
-          </li>
-        </ul>
-      </div>
-      <div style="clear:both;"></div>
+  <div class="contact100-more">
+    <i class="fa fa-phone"></i> 1300 091 272
+  </div>
 
-      <form class="contact-form">
-        <div class="wrap-input100 validate-input" data-validate="Name is required">
-          <h2>Enter Your Distance (Km) </h2>
-          <input id="numberKm" class="input100" type="text" name="name" placeholder="How many kilometers ...">
-          <span class="focus-input100"></span>
-        </div>
-        <div class="wrap-input100 validate-input" data-validate="Name is required">
-          <h2>Enter Your Waiting Time (minutes) </h2>
-          <input id="waitingTime" class="input100" type="text" name="name" placeholder="How long do you wait ...">
-          <span class="focus-input100"></span>
-        </div>
-        <div class="btn-footer">
-          <div class="wrap-contact100-form-btn">
-            <div class="contact100-form-bgbtn"></div>
-            <button type="button" class="contact100-form-btn" onclick="Calculator();">
-              CALCULATOR
-            </button>
-          </div>
-          <div class="wrap-contact100-form-btn">
-            <div class="contact100-form-bgbtn"></div>
-            <button type="button" class="contact100-form-btn" data-toggle="modal" data-target="#exampleModal">
-              PRINT RECEIPT
-            </button>
-          </div>
-        </div>
-      </form>
+  <div class="wrap-contact">
+    <div>
+      <img src="./img/logo.webp" height="70px" width="170px"/>
       <div style="clear:both"></div>
-      <div id="divCalculator" class="receipt">
-        <h2><i class="fa fa-car"></i>Total:
-          <span id="cashOut" class="cashOut"> You haven't started yet!</span>
-        </h2>
+      <span class="title">UBER CALCULATOR</span>
+      <h2>Please select vehicle:</h2>
+      <ul>
+        <li class="type">
+          <input type="radio" id="uberX" name="selector">
+          <label for="uberX">Uber X</label>
+
+          <div class="check"></div>
+        </li>
+
+        <li class="type">
+          <input type="radio" id="uberSUV" name="selector">
+          <label for="uberSUV">Uber SUV</label>
+          <div class="check"></div>
+        </li>
+
+        <li class="type">
+          <input type="radio" id="uberBlack" name="selector">
+          <label for="uberBlack">Uber Black</label>
+          <div class="check"></div>
+        </li>
+      </ul>
+
+    </div>
+    <div style="clear:both;"></div>
+
+    <form class="contact-form">
+      <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <h2>Enter your distance (Km) </h2>
+        <input id="totalKm" class="input100" type="number" name="name" placeholder="Number of kilometers ...">
+        <span class="focus-input100"></span>
+
+      </div>
+      <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <h2>Enter your waiting time </h2>
+        <input id="minuteWaited" class="input100" type="text" name="name" placeholder="Waiting time ...">
+        <span class="focus-input100"></span>
+
+      </div>
+
+      <div class="wrap-contact100-form-btn">
+        <div class="contact100-form-bgbtn"></div>
+        <button type="button" class="contact100-form-btn" id="cal-money-btn">
+          Total
+        </button>
+      </div>
+      <div class="wrap-contact100-form-btn">
+        <div class="contact100-form-bgbtn"></div>
+        <button id="export-bill-btn" type="button" class="contact100-form-btn" data-toggle="modal"
+          data-target="#exampleModal">
+          Print
+        </button>
+      </div>
+    </form>
+
+    <div style="clear:both"></div>
+
+    <div id="totalAmount" class="amount">
+      <h2><i class="fa fa-car"></i>  Total: 
+      <span id="printMoney" class="printMoney">You haven't started the trip yet</span></h2>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Your reciept</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Information</th>
+              <th>Kilometers</th>
+              <th>Fee</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="bill-tbody">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thank you </button>
       </div>
     </div>
   </div>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Your reciept</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Information</th>
-                <th>Kilometers</th>
-                <th>Fee</th>
-                <th>Subtotal</th>
-              </tr>
-            </thead>
-            <tbody id="bill-tbody">
-
-            </tbody>
-          </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Thank you <i
-              class="fa fa-hand-peace-o"></i></i></button>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
 
+<!-- Bootstrap JavaScript Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+  integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+  integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+<script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="./vendor/animsition/js/animsition.min.js"></script>
+<script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
 
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-    </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-    </script>
-  <script src="./vendor/jquery/jquery-3.2.1.min.js"></script>
-  <script src="./vendor/animsition/js/animsition.min.js"></script>
-  <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 </body>
 
 </html>
